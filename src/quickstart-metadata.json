@@ -1,0 +1,14 @@
+{
+  "sections": [
+    {
+      "tutorialTitle": "First markdown file!",
+      "tutorialPath": "media/firstSteps.md",
+      "codePath": "media/code1.py"
+    },
+    {
+      "tutorialTitle": "Second markdown file!",
+      "tutorialPath": "media/secondStep.md",
+      "codePath": "media/code2.py"
+    }
+  ]
+}

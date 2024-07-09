@@ -1,0 +1,18 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true
+      },
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": ["zenml.zenml-vscode"]
+    },
+    "codespaces": {
+      "openFiles": ["media/firstSteps.md", "README.md"]
+    }
+  }
+}
