@@ -68,17 +68,47 @@ export default class ZenmlViewProvider implements vscode.WebviewViewProvider {
 	
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-					<title>Cool Stuff</title>
+					<title>Quickstart Guide</title>
+          <style>
+            .accordion {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+              transition: 0.4s;
+            }
+
+            .active, .accordion:hover {
+              background-color: #ccc; 
+            }
+
+            .panel {
+              padding: 0 18px;
+              display: none;
+              background-color: white;
+              overflow: hidden;
+            }
+          </style>
 				</head>
 				<body>
-					<ul class="color-list">
-					</ul>
-	
-					<button class="get-started">Say Hi</button>
-          <button class="step-two">Go to Step 2</button>
-          <button class="hello">Testing</button>
-          <button class="execute-javascript">Execute Current Code</button>
-	
+        
+          <button class="accordion welcome button">Welcome</button>
+          <div class="panel">
+            <p>Welcome! This is some text over here</p>
+            <button class="execute-javascript">Execute Current Code</button>
+          </div>
+          <hr>
+          <button class="accordion step-two">Section 2</button>
+          <div class="panel">
+            <p>This is some text for section two</p>
+            <input type="text"></input>
+            <button class="execute-javascript">Execute Current Code</button>
+          </div>	
 					<script nonce="${nonce}" src="${scriptUri}"></script>
 				</body>
 				</html>`;

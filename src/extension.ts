@@ -9,6 +9,7 @@ export async function activate(context: vscode.ExtensionContext) {
   const quickstart = new Quickstart(quickstartMetadata, context);
   const provider = new ZenmlViewProvider(context.extensionUri, quickstart);
 
+  // Register webview
   context.subscriptions.push(
     vscode.window.registerWebviewViewProvider(
       ZenmlViewProvider.viewId,
@@ -16,22 +17,8 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand("zenml.openDocPanel", (fileId: number) => {
-      quickstart.onOpenDocPanel(fileId);
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "zenml.openCodePanel",
-      async (fileId: number) => {
-        await quickstart.onOpenCodePanel(fileId);
-      }
-    )
-  );
-
-  // If a user closes the terminal the extension opened we set it back to undefined so we know to open a new terminal
+  // If a user closes the terminal the extension opened we set it 
+  // back to undefined so we know to open a new terminal
   context.subscriptions.push(
     vscode.window.onDidCloseTerminal((closedTerminal) => {
       if (closedTerminal === quickstart.terminal) {
@@ -40,12 +27,7 @@ export async function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  // Runs the first open text editor with node - Creates a terminal if there isn't one already
-  context.subscriptions.push(
-    vscode.commands.registerCommand("zenml.runCurrentPythonFile", async () => {
-      quickstart.onRunCodeFile();
-    })
-  );
+  quickstart.registerCommands();
 }
 
 // This method is called when your extension is deactivated

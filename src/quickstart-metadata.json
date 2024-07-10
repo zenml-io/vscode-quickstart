@@ -1,14 +1,32 @@
 {
   "sections": [
     {
-      "tutorialTitle": "First markdown file!",
-      "tutorialPath": "media/firstSteps.md",
-      "codePath": "media/code1.py"
+      "title": "Welcome",
+      "description": "Welcome to the ZenML Quickstart guide.",
+      "steps": [
+          {
+              "doc": "media/welcome/welcome.md",
+              "code": "media/welcome/code1.py"
+          },
+          {
+              "doc": "media/welcome/finish.md",
+              "code": "media/welcome/code1.py"
+          }
+      ]
     },
-    {
-      "tutorialTitle": "Second markdown file!",
-      "tutorialPath": "media/secondStep.md",
-      "codePath": "media/code2.py"
+   {
+      "title": "Cloud Signup and Basic Pipeline Run",
+      "description": "",
+      "steps": [
+          {
+              "doc": "media/basic-pipeline/connect-to-zenml-cloud.md",
+              "code": "media/basic-pipeline/code2.py"
+          },
+          {
+              "doc": "media/finish.md",
+              "code": "media/basic-pipeline/code2.py"
+          }
+      ]
     }
   ]
 }

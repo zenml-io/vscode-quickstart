@@ -5,7 +5,7 @@
   //@ts-ignore
   const vscode = acquireVsCodeApi();
 
-  document.querySelector(".get-started")?.addEventListener("click", () => {
+  document.querySelector(".welcome")?.addEventListener("click", () => {
     onOpenMarkdown(0);
   });
 
@@ -25,5 +25,22 @@
 
   function onOpenMarkdown(id) {
     vscode.postMessage({ type: "openSection", id });
+  }
+})();
+
+(function () {
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
   }
 })();
