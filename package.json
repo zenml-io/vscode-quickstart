@@ -31,23 +31,7 @@
         }
       ]
     },
-    "commands": [
-      {
-        "command": "zenml.openDocPanel",
-        "title": "Opens markdown file",
-        "category": "ZenMl"
-      },
-      {
-        "command": "zenml.openCodePanel",
-        "title": "Opens tutorial code file",
-        "category": "ZenMl"
-      },
-      {
-        "command": "zenml.runCurrentPythonFile",
-        "title": "Runs the currently visible py file",
-        "category": "ZenMl"
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
