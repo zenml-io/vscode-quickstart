@@ -27,6 +27,20 @@
           "code": "media/basic-pipeline/code2.py"
         }
       ]
+    },
+    {
+      "title": "Load in some data",
+      "description": "",
+      "steps": [
+        {
+          "doc": "media/loading-data/loading-data.md",
+          "code": "media/loading-data/loading-data.py"
+        },
+        {
+          "doc": "media/loading-data/finish.md",
+          "code": "media/loading-data/loading-data.py"
+        }
+      ]
     }
   ]
 }
