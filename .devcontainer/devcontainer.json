@@ -18,5 +18,5 @@
       "openFiles": ["media/firstSteps.md", "README.md"]
     }
   },
-  "onCreateCommand": "pip install zenml"
+  "onCreateCommand": "pip install zenml && zenml integration install sklearn -y && zenml init && zenml stack set default"
 }
