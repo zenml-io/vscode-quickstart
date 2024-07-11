@@ -5,12 +5,12 @@
       "description": "Welcome to the ZenML Quickstart guide.",
       "steps": [
         {
-          "doc": "media/welcome/welcome.md",
-          "code": "media/welcome/code1.py"
+          "doc": "media/zenml/welcome/welcome.md",
+          "code": "media/zenml/welcome/code1.py"
         },
         {
-          "doc": "media/welcome/finish.md",
-          "code": "media/welcome/code1.py"
+          "doc": "media/zenml/welcome/finish.md",
+          "code": "media/zenml/welcome/code1.py"
         }
       ]
     },
@@ -19,12 +19,12 @@
       "description": "",
       "steps": [
         {
-          "doc": "media/basic-pipeline/connect-to-zenml-cloud.md",
-          "code": "media/basic-pipeline/code2.py"
+          "doc": "media/zenml/basic-pipeline/connect-to-zenml-cloud.md",
+          "code": "media/zenml/basic-pipeline/code2.py"
         },
         {
-          "doc": "media/basic-pipeline/finish.md",
-          "code": "media/basic-pipeline/code2.py"
+          "doc": "media/zenml/basic-pipeline/finish.md",
+          "code": "media/zenml/basic-pipeline/code2.py"
         }
       ]
     },
@@ -33,12 +33,12 @@
       "description": "",
       "steps": [
         {
-          "doc": "media/loading-data/loading-data.md",
-          "code": "media/loading-data/loading-data.py"
+          "doc": "media/zenml/loading-data/loading-data.md",
+          "code": "media/zenml/loading-data/loading-data.py"
         },
         {
-          "doc": "media/loading-data/finish.md",
-          "code": "media/loading-data/loading-data.py"
+          "doc": "media/zenml/loading-data/finish.md",
+          "code": "media/zenml/loading-data/loading-data.py"
         }
       ]
     }
