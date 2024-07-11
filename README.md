@@ -1,1 +1,1 @@
-# vscode-quickstart
+# vscode-quickstart-extension
