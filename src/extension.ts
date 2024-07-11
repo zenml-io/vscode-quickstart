@@ -27,7 +27,26 @@ export async function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  quickstart.registerCommands();
+  context.subscriptions.push(
+    vscode.commands.registerCommand("zenml.openDocPanel", quickstart.onOpenDocPanel)
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "zenml.openCodePanel",
+      quickstart.onOpenCodePanel
+    )
+  );
+
+  // Runs the first open text editor with node - Creates a terminal if there isn't one already
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "zenml.runCurrentPythonFile",
+      async () => {
+        quickstart.onRunCodeFile();
+      }
+    )
+  );
 }
 
 // This method is called when your extension is deactivated

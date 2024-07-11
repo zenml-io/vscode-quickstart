@@ -4,28 +4,28 @@
       "title": "Welcome",
       "description": "Welcome to the ZenML Quickstart guide.",
       "steps": [
-          {
-              "doc": "media/welcome/welcome.md",
-              "code": "media/welcome/code1.py"
-          },
-          {
-              "doc": "media/welcome/finish.md",
-              "code": "media/welcome/code1.py"
-          }
+        {
+          "doc": "media/welcome/welcome.md",
+          "code": "media/welcome/code1.py"
+        },
+        {
+          "doc": "media/welcome/finish.md",
+          "code": "media/welcome/code1.py"
+        }
       ]
     },
-   {
+    {
       "title": "Cloud Signup and Basic Pipeline Run",
       "description": "",
       "steps": [
-          {
-              "doc": "media/basic-pipeline/connect-to-zenml-cloud.md",
-              "code": "media/basic-pipeline/code2.py"
-          },
-          {
-              "doc": "media/finish.md",
-              "code": "media/basic-pipeline/code2.py"
-          }
+        {
+          "doc": "media/basic-pipeline/connect-to-zenml-cloud.md",
+          "code": "media/basic-pipeline/code2.py"
+        },
+        {
+          "doc": "media/basic-pipeline/finish.md",
+          "code": "media/basic-pipeline/code2.py"
+        }
       ]
     }
   ]

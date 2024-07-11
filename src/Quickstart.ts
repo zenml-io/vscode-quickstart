@@ -75,28 +75,7 @@ export default class Quickstart {
     this.context = context;
   }
 
-  registerCommands() {
-    this.context.subscriptions.push(
-      vscode.commands.registerCommand("zenml.openDocPanel", this.onOpenDocPanel)
-    );
-
-    this.context.subscriptions.push(
-      vscode.commands.registerCommand(
-        "zenml.openCodePanel",
-        this.onOpenCodePanel
-      )
-    );
-
-    // Runs the first open text editor with node - Creates a terminal if there isn't one already
-    this.context.subscriptions.push(
-      vscode.commands.registerCommand(
-        "zenml.runCurrentPythonFile",
-        async () => {
-          this.onRunCodeFile();
-        }
-      )
-    );
-  }
+  registerCommands() {}
 
   async openSection(sectionId: number) {
     this.currentSectionIndex = sectionId; // set current step to opened section -- should probbaly include some verification that that step exists first
@@ -109,15 +88,18 @@ export default class Quickstart {
       ],
     });
 
-    vscode.commands.executeCommand(
-      "zenml.openCodePanel",
-      currentSection.code()
-    );
-    vscode.commands.executeCommand(
-      "zenml.openDocPanel",
-      currentSection.title,
-      currentSection.doc()
-    );
+    this.onOpenCodePanel(currentSection.code());
+    this.onOpenDocPanel(currentSection.title, currentSection.doc());
+    // vscode.commands.executeCommand(
+    //   "zenml.openCodePanel",
+    //   currentSection.code()
+    // );
+
+    // vscode.commands.executeCommand(
+    //   "zenml.openDocPanel",
+    //   currentSection.title,
+    //   currentSection.doc()
+    // );
   }
 
   openNextStep() {
@@ -128,7 +110,8 @@ export default class Quickstart {
   }
 
   runCode() {
-    vscode.commands.executeCommand("zenml.runCurrentPythonFile");
+    this.onRunCodeFile();
+    // vscode.commands.executeCommand("zenml.runCurrentPythonFile");
   }
 
   // VSCODE COMMANDS LOGIC:
@@ -150,10 +133,17 @@ export default class Quickstart {
 
   async onOpenCodePanel(codePath: string) {
     const onDiskPath = path.join(this.context.extensionPath, codePath);
-
     const filePath = vscode.Uri.file(onDiskPath);
 
-    await this._openFile(filePath);
+    try {
+      const document = await vscode.workspace.openTextDocument(filePath);
+      this.editor = await vscode.window.showTextDocument(
+        document,
+        vscode.ViewColumn.One
+      );
+    } catch (error) {
+      vscode.window.showErrorMessage(`Failed to open file: ${error}`);
+    }
   }
 
   onRunCodeFile() {
@@ -184,17 +174,9 @@ export default class Quickstart {
 
   // PRIVATE METHODS:
 
-  private async _openFile(filePath: vscode.Uri) {
-    try {
-      const document = await vscode.workspace.openTextDocument(filePath);
-      this.editor = await vscode.window.showTextDocument(
-        document,
-        vscode.ViewColumn.One
-      );
-    } catch (error) {
-      vscode.window.showErrorMessage(`Failed to open file: ${error}`);
-    }
-  }
+  // private async _openFile(filePath: vscode.Uri) {
+
+  // }
 
   private _initializePanel() {
     this.panel = vscode.window.createWebviewPanel(
