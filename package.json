@@ -31,23 +31,7 @@
         }
       ]
     },
-    "commands": [
-      {
-        "command": "zenml.openDocPanel",
-        "title": "Opens markdown file",
-        "category": "ZenMl"
-      },
-      {
-        "command": "zenml.openCodePanel",
-        "title": "Opens tutorial code file",
-        "category": "ZenMl"
-      },
-      {
-        "command": "zenml.runCurrentPythonFile",
-        "title": "Runs the currently visible py file",
-        "category": "ZenMl"
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -59,7 +43,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",
-    "@types/node": "20.x",
+    "@types/node": "^20.14.10",
     "@types/vscode": "^1.90.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
