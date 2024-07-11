@@ -9,10 +9,14 @@
         "files.insertFinalNewline": true
       },
       // Add the IDs of extensions you want installed when the container is created.
-      "extensions": ["zenml.zenml-vscode"]
+      "extensions": [
+        "zenml.zenml-vscode",
+        "/workspaces/vscode-quickstart/.devcontainer/extensions/zenml-vscode-quickstart-0.0.1.vsix"
+      ]
     },
     "codespaces": {
       "openFiles": ["media/firstSteps.md", "README.md"]
     }
-  }
+  },
+  "onCreateCommand": "pip install zenml"
 }

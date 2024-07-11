@@ -1,7 +1,8 @@
 {
   "name": "zenml-vscode-quickstart",
   "displayName": "ZenML Quickstart",
-  "description": "",
+  "repository": "https://github.com/zenml-io/vscode-quickstart-extension",
+  "description": "Quickstart Guide",
   "version": "0.0.1",
   "publisher": "ZenML",
   "engines": {
