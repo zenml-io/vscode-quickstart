@@ -5,25 +5,25 @@
   //@ts-ignore
   const vscode = acquireVsCodeApi();
 
-  document.querySelector(".welcome")?.addEventListener("click", () => {
-    onOpenMarkdown(0);
-  });
-
-  document.querySelector(".step-two")?.addEventListener("click", () => {
-    onOpenMarkdown(1);
-  });
-
-  document
-    .querySelector(".execute-javascript")
-    ?.addEventListener("click", () => {
-      onExecuteJavascript();
+  document.querySelectorAll(".section").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      //@ts-ignore
+      const id = parseInt(e.target?.dataset.id, 10);
+      handleOpenSection(id);
     });
+  });
 
-  function onExecuteJavascript() {
+  document.querySelectorAll(".run-code").forEach((element) => {
+    element.addEventListener("click", () => {
+      handleRunCode();
+    });
+  });
+
+  function handleRunCode() {
     vscode.postMessage({ type: "runCodeFile" });
   }
 
-  function onOpenMarkdown(id) {
+  function handleOpenSection(id) {
     vscode.postMessage({ type: "openSection", id });
   }
 })();

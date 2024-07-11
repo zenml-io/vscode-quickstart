@@ -97,17 +97,17 @@ export default class ZenmlViewProvider implements vscode.WebviewViewProvider {
 				</head>
 				<body>
         
-          <button class="accordion welcome button">Welcome</button>
+          <button class="accordion section" data-id="0">Welcome</button>
           <div class="panel">
             <p>Welcome! This is some text over here</p>
-            <button class="execute-javascript">Execute Current Code</button>
+            <button class="run-code">Execute Current Code</button>
           </div>
           <hr>
-          <button class="accordion step-two">Section 2</button>
+          <button class="accordion section" data-id="1">Section 2</button>
           <div class="panel">
             <p>This is some text for section two</p>
             <input type="text"></input>
-            <button class="execute-javascript">Execute Current Code</button>
+            <button class="run-code">Execute Current Code</button>
           </div>	
 					<script nonce="${nonce}" src="${scriptUri}"></script>
 				</body>

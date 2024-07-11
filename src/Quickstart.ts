@@ -75,11 +75,10 @@ export default class Quickstart {
     this.context = context;
   }
 
-  registerCommands() {}
-
   async openSection(sectionId: number) {
     this.currentSectionIndex = sectionId; // set current step to opened section -- should probbaly include some verification that that step exists first
     const currentSection = this.sections[this.currentSectionIndex];
+
     await vscode.commands.executeCommand("vscode.setEditorLayout", {
       orientation: 0,
       groups: [
@@ -88,18 +87,8 @@ export default class Quickstart {
       ],
     });
 
-    this.onOpenCodePanel(currentSection.code());
-    this.onOpenDocPanel(currentSection.title, currentSection.doc());
-    // vscode.commands.executeCommand(
-    //   "zenml.openCodePanel",
-    //   currentSection.code()
-    // );
-
-    // vscode.commands.executeCommand(
-    //   "zenml.openDocPanel",
-    //   currentSection.title,
-    //   currentSection.doc()
-    // );
+    this.openCodePanel(currentSection.code());
+    this.openDocPanel(currentSection.title, currentSection.doc());
   }
 
   openNextStep() {
@@ -110,43 +99,6 @@ export default class Quickstart {
   }
 
   runCode() {
-    this.onRunCodeFile();
-    // vscode.commands.executeCommand("zenml.runCurrentPythonFile");
-  }
-
-  // VSCODE COMMANDS LOGIC:
-
-  // ideally i just want this to have a title and a docPath
-  onOpenDocPanel(title: string, docPath: string) {
-    if (!this.panel) {
-      this._initializePanel();
-    }
-
-    const tutorialPath = path.join(this.context.extensionPath, docPath);
-
-    // nullcheck to make typescript happy
-    if (this.panel) {
-      this.panel.title = title;
-      this.panel.webview.html = generateHTMLfromMD(tutorialPath);
-    }
-  }
-
-  async onOpenCodePanel(codePath: string) {
-    const onDiskPath = path.join(this.context.extensionPath, codePath);
-    const filePath = vscode.Uri.file(onDiskPath);
-
-    try {
-      const document = await vscode.workspace.openTextDocument(filePath);
-      this.editor = await vscode.window.showTextDocument(
-        document,
-        vscode.ViewColumn.One
-      );
-    } catch (error) {
-      vscode.window.showErrorMessage(`Failed to open file: ${error}`);
-    }
-  }
-
-  onRunCodeFile() {
     try {
       const activeEditorIsCurrentEditor =
         this.editor === vscode.window.activeTextEditor;
@@ -172,11 +124,38 @@ export default class Quickstart {
     }
   }
 
+  // HELPERS
+
+  openDocPanel(title: string, docPath: string) {
+    if (!this.panel) {
+      this._initializePanel();
+    }
+
+    const tutorialPath = path.join(this.context.extensionPath, docPath);
+
+    // nullcheck to make typescript happy
+    if (this.panel) {
+      this.panel.title = title;
+      this.panel.webview.html = generateHTMLfromMD(tutorialPath);
+    }
+  }
+
+  async openCodePanel(codePath: string) {
+    const onDiskPath = path.join(this.context.extensionPath, codePath);
+    const filePath = vscode.Uri.file(onDiskPath);
+
+    try {
+      const document = await vscode.workspace.openTextDocument(filePath);
+      this.editor = await vscode.window.showTextDocument(
+        document,
+        vscode.ViewColumn.One
+      );
+    } catch (error) {
+      vscode.window.showErrorMessage(`Failed to open file: ${error}`);
+    }
+  }
+
   // PRIVATE METHODS:
-
-  // private async _openFile(filePath: vscode.Uri) {
-
-  // }
 
   private _initializePanel() {
     this.panel = vscode.window.createWebviewPanel(
@@ -188,7 +167,7 @@ export default class Quickstart {
 
     this.panel.onDidDispose(() => {
       this.panel = undefined;
-    });
+    });   
   }
 
   // Watcher is created in the same directory as the file being executed

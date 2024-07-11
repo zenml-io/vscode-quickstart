@@ -17,7 +17,7 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
-  // If a user closes the terminal the extension opened we set it 
+  // If a user closes the terminal the extension opened we set it
   // back to undefined so we know to open a new terminal
   context.subscriptions.push(
     vscode.window.onDidCloseTerminal((closedTerminal) => {
@@ -25,27 +25,6 @@ export async function activate(context: vscode.ExtensionContext) {
         quickstart.terminal = undefined;
       }
     })
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("zenml.openDocPanel", quickstart.onOpenDocPanel)
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "zenml.openCodePanel",
-      quickstart.onOpenCodePanel
-    )
-  );
-
-  // Runs the first open text editor with node - Creates a terminal if there isn't one already
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "zenml.runCurrentPythonFile",
-      async () => {
-        quickstart.onRunCodeFile();
-      }
-    )
   );
 }
 
