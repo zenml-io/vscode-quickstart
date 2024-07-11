@@ -2,6 +2,8 @@ import * as vscode from "vscode";
 import path from "path";
 import generateHTMLfromMD from "./utils/generateHTMLfromMD";
 import getNonce from "./utils/getNonce";
+import { writeFileSync } from "fs";
+import os from "os";
 
 interface TutorialData {
   sections: QuickstartSection[];
@@ -107,21 +109,37 @@ export default class Quickstart {
         throw new Error("File has to be open and visible to execute");
       }
 
-      const filePath = this.editor.document.uri.fsPath;
-      const signalFilePath = this._initializeFileWatcher(filePath); // To automatically run
-
       if (!this.terminal) {
-        this.terminal = vscode.window.createTerminal("PY Runner");
+        this.terminal = vscode.window.createTerminal("ZenML Terminal");
       }
 
-      this.terminal.sendText(
-        `python "${filePath}" && touch "${signalFilePath}"`
-      );
+      const filePath: string = this.editor.document.uri.fsPath;
+      const signalFilePath = this._initializeFileWatcher(filePath); // To automatically run
+
+      this._runCode(filePath, signalFilePath);
 
       this.terminal.show();
     } catch (error) {
       vscode.window.showErrorMessage(`File has to be open to execute.`);
     }
+  }
+
+  private _runCode(filePath: string, signalFilePath: string) {
+    if (!this.terminal) {
+      this.terminal = vscode.window.createTerminal("ZenML Terminal");
+    }
+
+    const scriptPath = path.join(os.tmpdir(), "runCode.sh");
+
+    writeFileSync(
+      scriptPath,
+      `
+    python "${filePath}"
+    touch "${signalFilePath}"
+    `
+    );
+
+    this.terminal.sendText(`bash ${scriptPath}`);
   }
 
   // HELPERS
@@ -143,7 +161,6 @@ export default class Quickstart {
   async openCodePanel(codePath: string) {
     const onDiskPath = path.join(this.context.extensionPath, codePath);
     const filePath = vscode.Uri.file(onDiskPath);
-
     try {
       const document = await vscode.workspace.openTextDocument(filePath);
       this.editor = await vscode.window.showTextDocument(
