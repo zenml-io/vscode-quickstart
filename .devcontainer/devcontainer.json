@@ -6,7 +6,8 @@
       // Set *default* container specific settings.json values on container create.
       "settings": {
         "editor.formatOnSave": true,
-        "files.insertFinalNewline": true
+        "files.insertFinalNewline": true,
+        "terminal.integrated.cwd": "/home/codespace/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/media/zenml"
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
@@ -17,6 +18,9 @@
     "codespaces": {
       "openFiles": ["media/firstSteps.md", "README.md"]
     }
+  },
+  "containerEnv": {
+    "PYTHONPATH": "/home/codespace/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/media/zenml/quickstartModules"
   },
   "onCreateCommand": "pip install zenml && zenml integration install sklearn -y && zenml init && zenml stack set default"
 }
