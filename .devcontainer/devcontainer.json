@@ -22,5 +22,6 @@
   "containerEnv": {
     "PYTHONPATH": "/home/codespace/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/media/zenml/quickstartModules"
   },
-  "onCreateCommand": "pip install zenml && zenml integration install sklearn -y && zenml init && zenml stack set default"
+  // "onCreateCommand": "pip install zenml && zenml integration install sklearn -y && zenml init && zenml stack set default"
+  "onCreateCommand": "pip install uv pip && uv pip install --system zenml && zenml integration install sklearn -y --uv && zenml init && zenml stack set default"
 }
