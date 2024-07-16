@@ -1,5 +1,7 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
@@ -10,7 +12,6 @@
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        // "zenml.zenml-vscode",
         "/workspaces/vscode-quickstart/.devcontainer/extensions/zenml-vscode-quickstart-0.0.1.vsix"
       ]
     },
@@ -19,8 +20,7 @@
     }
   },
   "containerEnv": {
-    "PYTHONPATH": "/home/codespace/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules:/home/codespace/.vscode-remote/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules"
+    "PYTHONPATH": "/root/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules:/root/.vscode-remote/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules"
   },
-  // "onCreateCommand": "pip install zenml && zenml integration install sklearn -y && zenml init && zenml stack set default"
-  "onCreateCommand": "pip install uv pip && uv pip install --system zenml && zenml integration install sklearn -y --uv && zenml init && zenml stack set default"
+  "onCreateCommand": "zenml init && zenml stack set default"
 }
