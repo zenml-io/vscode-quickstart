@@ -1,7 +1,5 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "druhnoj/test-quickstart:latest",
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
@@ -15,9 +13,7 @@
         "/workspaces/vscode-quickstart/.devcontainer/extensions/zenml-vscode-quickstart-0.0.1.vsix"
       ]
     },
-    "codespaces": {
-      "openFiles": ["media/firstSteps.md", "README.md"]
-    }
+    "codespaces": {}
   },
   "containerEnv": {
     "PYTHONPATH": "/root/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules:/root/.vscode-remote/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules"
