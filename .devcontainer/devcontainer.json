@@ -6,7 +6,8 @@
       // Set *default* container specific settings.json values on container create.
       "settings": {
         "editor.formatOnSave": true,
-        "files.insertFinalNewline": true
+        "files.insertFinalNewline": true,
+        "workbench.startupEditor": "none"
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
