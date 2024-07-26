@@ -1,26 +1,23 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "druhnoj/quickstart:latest",
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
         "editor.formatOnSave": true,
-        "files.insertFinalNewline": true
+        "files.insertFinalNewline": true,
+        "workbench.startupEditor": "none",
+        "extensions.ignoreRecommendations": true
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "/workspaces/vscode-quickstart/.devcontainer/extensions/zenml-vscode-quickstart-0.0.1.vsix"
       ]
     },
-    "codespaces": {
-      "openFiles": ["media/firstSteps.md", "README.md"]
-    }
+    "codespaces": {}
   },
   "containerEnv": {
     "PYTHONPATH": "/root/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules:/root/.vscode-remote/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules"
-  },
-  "onCreateCommand": "zenml init && zenml stack set default"
+  }
 }
