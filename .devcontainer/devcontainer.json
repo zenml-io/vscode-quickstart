@@ -1,5 +1,5 @@
 {
-  "image": "druhnoj/test-quickstart:latest",
+  "image": "druhnoj/quickstart:latest",
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
@@ -17,6 +17,5 @@
   },
   "containerEnv": {
     "PYTHONPATH": "/root/.vscode-server/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules:/root/.vscode-remote/extensions/zenml.zenml-vscode-quickstart-0.0.1/zenmlQuickstart/quickstartModules"
-  },
-  "onCreateCommand": "zenml init && zenml stack set default"
+  }
 }
