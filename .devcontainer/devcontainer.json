@@ -17,8 +17,5 @@
     },
     "codespaces": {}
   },
-  "containerEnv": {
-    "PYTHONPATH": "/workspaces/vscode-quickstart/.devcontainer/zenmlQuickstart/quickstartModules"
-  },
   "workspaceFolder": "/workspaces/vscode-quickstart/.devcontainer/zenmlQuickstart/sections"
 }
