@@ -17,5 +17,5 @@
     },
     "codespaces": {}
   },
-  "workspaceFolder": "/workspaces/vscode-quickstart"
+  "workspaceFolder": "/workspaces/vscode-quickstart/.devcontainer/zenmlQuickstart/sections"
 }
