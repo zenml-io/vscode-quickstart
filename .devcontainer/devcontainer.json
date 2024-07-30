@@ -15,7 +15,9 @@
         "/workspaces/vscode-quickstart/.devcontainer/extensions/zenml-vscode-quickstart-0.0.1.vsix"
       ]
     },
-    "codespaces": {}
+    "containerEnv": {
+      "PYTHONPATH": "/workspaces/vscode-quickstart/.devcontainer/zenmlQuickstart"
+    }
   },
   "workspaceFolder": "/workspaces/vscode-quickstart/.devcontainer/zenmlQuickstart/sections"
 }
