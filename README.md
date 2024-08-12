@@ -1,4 +1,6 @@
 # Welcome to the ZenML VSCode Quickstart 👋
+![Screenshot 2024-08-12 at 1 57 11 PM](https://github.com/user-attachments/assets/f1aee536-6c84-40b7-a4c2-02a3ea8a669e)
+
 
 ## Introduction
 
