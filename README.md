@@ -1,4 +1,4 @@
-# vscode-quickstart-extension
+# Welcome to the ZenML VSCode Quickstart 👋
 
 ## Introduction
 
