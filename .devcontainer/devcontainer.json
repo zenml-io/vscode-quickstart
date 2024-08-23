@@ -1,5 +1,5 @@
 {
-  "image": "druhnoj/quickstart:latest",
+  "image": "zenmldocker/quickstart:latest",
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
