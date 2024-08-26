@@ -1,5 +1,5 @@
 {
-  "image": "zenmldocker/quickstart:latest",
+  "image": "zenmldocker/vscode-quickstart:latest",
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
